@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(repos => {
             if (Array.isArray(repos)) {
-                repos.forEach(repo => {
+                repos
+                .filter(repo => repo.name !== "Portfolio")
+                .forEach(repo => {
                     const repoName = repo.name;
                     const repoUrl = repo.html_url;
 
